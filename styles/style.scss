@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+@import './variables';
+@import './universal'; 
+
+
+header {
+    position: fixed;
+    top: 0;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr; 
+    align-items: center;
+    width: 100%; 
+    img {
+        width: 60px;   
+    }
+    .bx-menu {
+        display: none; 
+    }
+    .navbar {  
+        display: flex; 
+        width: 100%;
+        justify-content: center;
+        transition: $bgTransition; 
+        a {
+            padding: 20px;
+            color: $secondColor;
+            &:hover {
+                color: $textColor;
+                background-color: $mainColor;
+                border-radius: 10px;
+                transition: .5s;
+            }
+        }
+    }
+    .header-icons { 
+        display: flex;
+        justify-content: end;
+        .header-icon {
+            cursor: pointer;
+            margin: 20px; 
+            font-size: 25px;  
+            color: $secondColor;
+        } 
+    } 
+    input {
+        display: none; 
+    }
+    input.active {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        display: initial;
+        width: auto;
+        height: 2rem;
+        padding: 1.3rem; 
+        
+    }
+}
+header.shadow {  
+    background-color: $textColor; 
+}
+
+.home {
+    width: 100%;
+    min-height: 100vh;
+    background: url(../img/bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    @include grid();
+    align-items: center;
+    padding: 20px;
+    .home-text {
+        h1 {
+            font-size: 3.4rem; 
+            color: $mainColor;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        p {
+            font-size: .9rem;
+            color: $bgColor;
+            margin: 0.5rem 0 1.4rem;
+        } 
+    }
+    
+}  
+
+.about {
+    @include grid();
+    align-items: center;
+    padding: 40px;
+    img {
+        border-radius: 5px;
+        align-self: flex-start;
+    }
+    .box * {
+        margin: 5px;
+    }
+    
+}
+
+.products {
+    @include grid();
+
+    .product {
+        // position: relative;
+        display: flex;
+        flex-direction: column; 
+        justify-content: center; 
+        padding: 20px;
+        box-shadow: $boxShadow; 
+        border-radius: 10px;
+        text-transform: uppercase;
+        img {
+            // width: 1fr;
+            background-color: rgb(247, 245, 245);
+            border-radius: 10px;
+            object-fit: contain;
+            height: 15rem;
+            padding: 15px;
+        }
+        .box {
+            display: flex;
+            justify-content: space-around;
+            span {
+                color: $bgColor;
+                background-color: $mainColor; 
+                border-radius: 5px;
+                padding: 5px;
+            }
+            a {
+                color: $textColor; 
+                border-radius: 5px;
+                padding: 5px; 
+                border: 2px solid $mainColor; 
+                transition: $bgTransition;
+                &:hover { 
+                    color: $bgColor; 
+                    background-color: $mainColor; 
+                    transition: $bgTransition;
+                }
+            }
+            
+        }
+    }
+}
+
+.customers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, auto));
+    gap: 1.5rem;
+    padding: 3rem;
+
+    .customer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: $boxShadow;
+        border-radius: .5rem;
+        padding: 1.8rem;
+        cursor: pointer;
+        transition: $bgTransition;
+        .stars {
+            color: $mainColor;
+        }
+        img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        &:hover {
+            background: #e4d9ca;
+            transition: $bgTransition; 
+        }
+
+    }
+}
+
+.footer {
+    @include grid();
+    padding: 1.5rem;
+    .social {
+        display: flex;
+        flex-direction: column;
+        .social-icons {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            a {
+                padding: .9rem;
+                background-color: rgb(218, 218, 218);
+                border-radius: 5px;
+                margin: .9rem;
+                color: $textColor;
+                transition: $bgTransition;
+                font-size: 20px;
+                &:hover {
+                    background: #e4d9ca;
+                    transition: $bgTransition;
+
+                }
+            }
+        }
+    }
+    .support a {
+        color: $textColor;
+        text-decoration: underline;
+    }
+    .guides a {
+        color: $textColor;
+        text-decoration: underline;
+    }
+    .contact {
+        display: flex;
+        flex-direction: column;
+        span {
+            padding: 5px;
+            i {
+                padding-right: 5px;
+            }
+        }
+    }
+}
+ 
+.copyright {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e4d9ca;
+    padding: 1.5rem;
+    h1 {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 1058px) {
+
+}
+
+@media (max-width: 991px) {
+    .about { 
+        display: flex;
+        flex-direction: column-reverse;
+        img {
+            border-radius: 5px;
+            align-self: center;
+        }
+        .box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+    }
+}
+
+@media (max-width: 768px) {
+
+    header {
+        .bx-menu {
+        
+            display: initial;
+            color: $bgColor;
+            cursor: pointer;
+            font-size: 25px;
+        }
+        .navbar {
+            position: absolute;
+            top: -570px;
+            left: 0;
+            right: 0; 
+            background-color: $textColor;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 2px solid rgb(44, 44, 44);
+            * {
+                padding: .9rem;
+            }
+        }
+        .navbar.active { 
+            top: 100%;   
+        }
+    } 
+}
